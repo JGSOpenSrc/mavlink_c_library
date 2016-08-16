@@ -36,8 +36,8 @@ static void mavlink_test_eag_raw(uint8_t system_id, uint8_t component_id, mavlin
         memset(&packet1, 0, sizeof(packet1));
         	packet1.time_stamp = packet_in.time_stamp;
         	packet1.raw_data = packet_in.raw_data;
-        
-        
+
+
 
         memset(&packet2, 0, sizeof(packet2));
 	mavlink_msg_eag_raw_encode(system_id, component_id, &msg, &packet1);
@@ -61,7 +61,7 @@ static void mavlink_test_eag_raw(uint8_t system_id, uint8_t component_id, mavlin
         }
 	mavlink_msg_eag_raw_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
-        
+
         memset(&packet2, 0, sizeof(packet2));
 	mavlink_msg_eag_raw_send(MAVLINK_COMM_1 , packet1.raw_data , packet1.time_stamp );
 	mavlink_msg_eag_raw_decode(last_msg, &packet2);
@@ -81,8 +81,8 @@ static void mavlink_test_ir_calibration(uint8_t system_id, uint8_t component_id,
         	packet1.timestamp = packet_in.timestamp;
         	packet1.data = packet_in.data;
         	packet1.data_code = packet_in.data_code;
-        
-        
+
+
 
         memset(&packet2, 0, sizeof(packet2));
 	mavlink_msg_ir_calibration_encode(system_id, component_id, &msg, &packet1);
@@ -106,7 +106,7 @@ static void mavlink_test_ir_calibration(uint8_t system_id, uint8_t component_id,
         }
 	mavlink_msg_ir_calibration_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
-        
+
         memset(&packet2, 0, sizeof(packet2));
 	mavlink_msg_ir_calibration_send(MAVLINK_COMM_1 , packet1.data_code , packet1.data , packet1.timestamp );
 	mavlink_msg_ir_calibration_decode(last_msg, &packet2);
@@ -126,8 +126,8 @@ static void mavlink_test_distance_sensor_filtered(uint8_t system_id, uint8_t com
         	packet1.timestamp = packet_in.timestamp;
         	packet1.current_distance = packet_in.current_distance;
         	packet1.covariance = packet_in.covariance;
-        
-        
+
+
 
         memset(&packet2, 0, sizeof(packet2));
 	mavlink_msg_distance_sensor_filtered_encode(system_id, component_id, &msg, &packet1);
@@ -151,7 +151,7 @@ static void mavlink_test_distance_sensor_filtered(uint8_t system_id, uint8_t com
         }
 	mavlink_msg_distance_sensor_filtered_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
-        
+
         memset(&packet2, 0, sizeof(packet2));
 	mavlink_msg_distance_sensor_filtered_send(MAVLINK_COMM_1 , packet1.current_distance , packet1.covariance , packet1.timestamp );
 	mavlink_msg_distance_sensor_filtered_decode(last_msg, &packet2);
